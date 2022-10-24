@@ -5,8 +5,6 @@ import requests
 
 class OnFinance:
     def __init__(self, isin):
-        print(requests.__version__)
-
         if not self.__isin_correct(isin):
             raise TypeError(isin + " ISIN is not valid")
 
@@ -53,9 +51,8 @@ class OnFinance:
 
         if len(isin).__eq__(12):
             country_code = isin[:2]
-            identifier = isin[2:]
 
-            if country_code.isalpha() and identifier.isnumeric():
+            if country_code.isalpha():
                 return True
 
         return False
